@@ -9,12 +9,12 @@ public class DepositCalculator {
     private double value;
     private int places;
 
-    public DepositCalculator() {
-        this.scanner = new Scanner(System.in);
-    }
-
     public static void main(String[] args) {
         new DepositCalculator().getDepositCalculations();
+    }
+
+    public DepositCalculator() {
+        this.scanner = new Scanner(System.in);
     }
 
     double calculateComplexPercent(double amount, double yearRate, int depositPeriod) {
@@ -24,8 +24,7 @@ public class DepositCalculator {
         double pay;
 
         pay = amount * pow((1 + yearRate / 12), 12 * depositPeriod);
-        pay = doRoundOperation(pay, 2);
-        return pay;
+        return doRoundOperation(pay, 2);
     }
 
     double calculateSimplePercent(double amount, double yearRate, int depositPeriod) {
@@ -35,8 +34,7 @@ public class DepositCalculator {
         double pay;
 
         pay = amount + amount * yearRate * depositPeriod;
-        pay = doRoundOperation(pay, 2);
-        return pay;
+        return doRoundOperation(pay, 2);
     }
 
     double doRoundOperation(double value, int places) {
